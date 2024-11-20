@@ -70,6 +70,7 @@ class ClimaViewModel : ViewModel() {
     }
 
     private suspend fun buscarPronostico(ciudad: Ciudad) {
+        _ciudadesEncontradas.value = listOf()
         _estado.value = ClimaEstado.Cargando
         try {
             val pronosticoSemanal = repositorio.traerPronostico(ciudad.lat, ciudad.lon)
